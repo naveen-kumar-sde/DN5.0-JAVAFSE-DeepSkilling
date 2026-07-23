@@ -1,4 +1,4 @@
-#  Cognizant Digital Nurture 4.0 – Java Full Stack Engineer (FSE) Hands-on
+#  Cognizant Digital Nurture 5.0 – Java Full Stack Engineer (FSE) Hands-on
 
 ##  Author
 **NAVEEN KUMAR NALLUSAMY**
@@ -7,7 +7,7 @@
 
 ## About This Repository
 
-This repository contains my hands-on exercises and coding assignments completed as part of the **Cognizant Digital Nurture 4.0 – Java Full Stack Engineer (FSE)** training program.
+This repository contains my hands-on exercises and coding assignments completed as part of the **Cognizant Digital Nurture 5.0 – Java Full Stack Engineer (FSE)** training program.
 
 The exercises focus on building practical knowledge in Java, Spring Framework, Spring Boot, REST APIs, Microservices, SQL, PL/SQL, Unit Testing, and related technologies.
 
@@ -120,7 +120,7 @@ CTS_HANDS_ON_DIGITAL_NURTURE
 
 ##  Purpose
 
-This repository showcases my practical learning, coding exercises, and hands-on implementations completed during the Cognizant Digital Nurture 4.0 Java Full Stack Engineer training program.
+This repository showcases my practical learning, coding exercises, and hands-on implementations completed during the Cognizant Digital Nurture 5.0 Java Full Stack Engineer training program.
 
 ---
 
@@ -136,7 +136,7 @@ This repository showcases my practical learning, coding exercises, and hands-on 
 
 ## Acknowledgement
 
-This repository is created for learning purposes as part of the **Cognizant Digital Nurture 4.0 – Java Full Stack Engineer (FSE)** training program.
+This repository is created for learning purposes as part of the **Cognizant Digital Nurture 5.0 – Java Full Stack Engineer (FSE)** training program.
 
 ---
 
