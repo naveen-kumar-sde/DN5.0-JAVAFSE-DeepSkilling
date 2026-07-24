@@ -1,0 +1,65 @@
+/* Scenario 1: Apply 1% discount on loan interest rates for customers above 60 */
+
+BEGIN
+    FOR RECORD IN
+    (
+        SELECT customerId, age
+        FROM Customers
+    )
+    LOOP
+        IF RECORD.age > 60 THEN
+
+            UPDATE Loans
+            SET interest_rate = interest_rate - 1
+            WHERE customerId = RECORD.customerId;
+
+        END IF;
+    END LOOP;
+END;
+/
+
+/* Scenario 2: Promote customers with balance greater than 10000 to VIP */
+
+BEGIN
+    FOR RECORD IN
+    (
+        SELECT customerId, account_balance
+        FROM Customers
+    )
+    LOOP
+        IF RECORD.account_balance > 10000 THEN
+
+            UPDATE Customers
+            SET isVIP = 1
+            WHERE customerId = RECORD.customerId;
+
+        END IF;
+    END LOOP;
+END;
+/
+
+/* Scenario 3: Send reminders for loans due within the next 30 days */
+
+BEGIN
+    FOR RECORD IN
+    (
+        SELECT loanId,
+               customerId,
+               loan_due_date
+        FROM loanDetails
+        WHERE loan_due_date BETWEEN SYSDATE AND SYSDATE + 30
+    )
+    LOOP
+
+        DBMS_OUTPUT.PUT_LINE(
+            'Reminder: Loan '
+            || RECORD.loanId
+            || ' for Customer '
+            || RECORD.customerId
+            || ' is due on '
+            || RECORD.loan_due_date
+        );
+
+    END LOOP;
+END;
+/

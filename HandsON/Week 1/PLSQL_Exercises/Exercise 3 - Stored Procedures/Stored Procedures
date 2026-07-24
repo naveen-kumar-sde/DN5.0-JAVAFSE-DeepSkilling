@@ -1,0 +1,86 @@
+/*Calculate and update the balance of all savings accounts by applying an interest rate of 1%*/
+CREATE OR REPLACE PROCEDURE Monthly_Interest
+    IS
+    BEGIN
+         FOR RECORD IN
+         (
+            SELECT accountId,accountType,balance
+            FROM accounts
+         )
+         LOOP
+            IF  RECORD.accountType = 'savings' THEN
+
+                UPDATE accounts
+                SET balance = balance + ( balance * 0.01 )
+                WHERE accountId = RECORD.accountId;
+
+            END IF;
+
+         END LOOP;
+    END;
+    /
+
+/*Scenario 2: UpdateEmployeeBonus*/
+
+CREATE OR REPLACE PROCEDURE updateEmployeeBonus
+(
+    department_name IN VARCHAR2,
+    bonus_percentage IN FLOAT
+)
+    IS
+    BEGIN
+         FOR RECORD IN
+         (
+            SELECT employeeId,department,salary
+            FROM Employees
+         )
+         LOOP
+            IF  RECORD.department = department_name THEN
+
+                UPDATE Employees
+                SET salary = salary + ( salary * bonus_percentage / 100 )
+                WHERE employeeId = RECORD.employeeId;
+
+            END IF;
+
+         END LOOP;
+    END;
+    /
+
+/*Scenario 3: TransferFunds*/
+
+CREATE OR REPLACE PROCEDURE transferFunds
+(
+    source_accountId IN NUMBER,
+    destination_accountId IN NUMBER,
+    transfer_amount IN FLOAT
+)
+    IS
+    BEGIN
+         FOR RECORD IN
+         (
+            SELECT accountId,balance
+            FROM accounts
+            WHERE accountId = source_accountId
+         )
+         LOOP
+            IF RECORD.balance >= transfer_amount THEN
+
+                UPDATE accounts
+                SET balance = balance - transfer_amount
+                WHERE accountId = source_accountId;
+
+                UPDATE accounts
+                SET balance = balance + transfer_amount
+                WHERE accountId = destination_accountId;
+
+                DBMS_OUTPUT.PUT_LINE('Transfer Successful');
+
+            ELSE
+
+                DBMS_OUTPUT.PUT_LINE('Insufficient Balance');
+
+            END IF;
+         END LOOP;
+    END;
+    /
