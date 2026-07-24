@@ -8,7 +8,7 @@ public class AccountController {
     public Account getAccount() {
         return new Account(
                 1023,
-                "Balajivasun",
+                "Naveen kumar",
                 250000.0
         );
     }
